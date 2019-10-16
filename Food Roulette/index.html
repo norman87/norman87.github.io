@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <!-- link to d3 javascript library -->
+        <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+        <!-- link to jquery cdn -->
+        <script
+          src="https://code.jquery.com/jquery-3.4.1.js"
+          integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+          crossorigin="anonymous"></script>
+
+        <!-- link to external js file, note that it has to come after jquery cdn -->
+        <script type="text/javascript" src="js/app.js"></script>
+
+        <!-- link to bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- link to external css file -->
+        <link rel="stylesheet" type="text/css" href="main.css">
+
+        <!-- link to bootstrap JS file -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <!-- link to google font -->
+        <link href="https://fonts.googleapis.com/css?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <h1>ANYTHING LAH!</h1>
+
+        <form>
+            <div class="container" >
+                <div class="row">
+                    <div class="form-group col container" id="wheelContainer">
+                        <div class="container-fluid col-md" id="chart"></div>
+                    </div>
+
+                    <div class="form-group col-4 row align-items-center" id="inputContainer">
+                        <div class="form-group row">
+                            <label for="distanceSelect">Restaurants from curent location:</label>
+                            <select class="form-control" id="nearestSelect">
+                                <option>Nearest 10!</option>
+                                <option>Nearest 15!</option>
+                                <option>Nearest 20!</option>
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <button type="button" class="btn btn-primary" id="updateWheel">UPDATE WHEEL LAH!</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button>
+
+        <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-body">
+                  <div class="container-fluid" id="popUpContent">
+
+                    <div class="row">
+                        <h2>ANYTHING LAH! has decided for you:</h2>
+                    </div>
+
+                    <div class="row">
+                        <h2>Name:</h2>
+                    </div>
+
+                    <div class="row">
+                        <h2>Opening Hours:</h2>
+                    </div>
+
+                    <div class="row">
+                        <h2>Images:</h2>
+                    </div>
+
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </body>
+</html>

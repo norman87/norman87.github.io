@@ -1,0 +1,73 @@
+text{
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:11px;
+    pointer-events:none;
+}
+
+#chart{
+    width:500px;
+    height:500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#question{
+    width:400px;
+    height:500px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 50%;
+
+}
+#question h1{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top:50%;
+    -webkit-transform:translate(0,-50%);
+            transform:translate(0,-50%);
+}
+
+#inputBox {
+    align-content: center;
+    margin-left: auto;
+    margin-top: auto;
+}
+
+h1 {
+    text-align: center;
+    padding: 15px;
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 80px;
+
+}
+
+.slice {
+    font-family: 'Mouse Memoirs', sans-serif;
+}
+
+#updateWheel {
+    margin-top: 32px;
+}
+
+body {
+    height: 100%;
+    background-image: url('http://cdn.cnn.com/cnnnext/dam/assets/190710135245-12-waterfront-restaurants.jpg');
+    /*background-size: cover;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Mouse Memoirs', sans-serif;
+}
+
+#inputContainer {
+    background-color: white;
+    box-shadow: 5px 5px 13px black;
+    border-radius: 15px;
+}
+
+
+.row {
+    padding: 20px;
+}
