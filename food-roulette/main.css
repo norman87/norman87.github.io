@@ -1,6 +1,6 @@
 text{
     font-family: 'Mouse Memoirs', sans-serif;
-    font-size:15px;
+    font-size:20px;
     pointer-events:none;
 }
 
@@ -28,7 +28,7 @@ h1 {
 body {
     height: 100%;
     background-image: url('http://cdn.cnn.com/cnnnext/dam/assets/190710135245-12-waterfront-restaurants.jpg');
-    /*background-size: cover;*/
+    font-size: 30px;
     background-position: center;
     background-repeat: no-repeat;
     font-family: 'Mouse Memoirs', sans-serif;
@@ -40,8 +40,7 @@ body {
     border-radius: 15px;
 }
 
-
-.row {
+.form-group {
     padding: 20px;
 }
 
