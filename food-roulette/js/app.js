@@ -135,8 +135,15 @@ $(()=> {
         $('#restaurantTiming').remove();
         $('#popUpContent > .row').eq(2).append($('<h2>').attr("id","restaurantTiming").text(restaurantData[picked].restaurant.timings));
 
-        $('#restaurantImages').remove();
-        $('#popUpContent > .row').eq(3).append($('<img>').attr("id","restaurantImages").src(restaurantData[picked].restaurant.timings));
+        $('#phoneNumber').remove();
+        $('#popUpContent > .row').eq(3).append($('<h2>').attr("id","phoneNumber").text(restaurantData[picked].restaurant.phone_numbers));
+
+        // $('#phoneNumber').remove();
+        // $('#popUpContent > .row').eq(4).append($('<a>').attr("href", restaurantData.restaurant.url).text(restaurantData[picked].restaurant.phone_numbers));
+
+        setTimeout(function() {
+            $('#popUpModal').modal('show');
+        }, 3000);
 
     }
     // cretae spin logo and triangle pointer
