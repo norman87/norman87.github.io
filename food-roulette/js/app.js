@@ -196,6 +196,9 @@ $(()=> {
         return geoData;
     };
 
+    function appendRestaurantNamesIntoTable (restaurant) {
+        $('#restaurantList > tbody').append($('<tr>').append($('<td>').text(restaurant)));
+    }
 
     $('#updateWheel').on("click", (event)=> {
         event.preventDefault();
@@ -230,13 +233,17 @@ $(()=> {
 
                 for (let i=0; i<10; i++) {
                     restaurantData.push(data.restaurants[i]);
-                    console.log(restaurantData[i].restaurant.name)
+                    console.log(restaurantData[i].restaurant.name);
+                    appendRestaurantNamesIntoTable(restaurantData[i].restaurant.name);
                 };
                 console.log(restaurantData);
+
+
 
                 $('.slice > path').remove();
                 $('.slice > text').remove();
                 drawSpinningWheel();
+
 
             },
 
