@@ -145,14 +145,13 @@ $(()=> {
         $('#phoneNumber').remove();
         $('#popUpContent > .row').eq(3).append($('<h2>').attr("id","phoneNumber").text(restaurantData[picked].restaurant.phone_numbers));
 
-        // $('#phoneNumber').remove();
-        // $('#popUpContent > .row').eq(4).append($('<a>').attr("href", restaurantData.restaurant.url).text(restaurantData[picked].restaurant.phone_numbers));
-
         setTimeout(function() {
             $('#popUpModal').modal('show');
         }, 3000);
 
     }
+
+
     // cretae spin logo and triangle pointer
         svg.append("g")
         .attr("transform", "translate(" + (width + padding.left + padding.right) + "," + ((height /2)+padding.top) + ")")
@@ -171,22 +170,21 @@ $(()=> {
         .text("SPIN")
         .style({"font-weight":"bold", "font-size":"30px"});
 
-
-
-        function shuffle(array) {
-            for (let i= array.length - 1; i>0; i--) {
-                let j = Math.floor(Math.random() * (i+1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
 // API portion
+    let geoData = getCurrentGeoData();
+
+    function shuffle(array) {
+    for (let i= array.length - 1; i>0; i--) {
+        let j = Math.floor(Math.random() * (i+1));
+        [array[i], array[j]] = [array[j], array[i]];
+        }
+    };
+
     function getCurrentGeoData() {
         let geoData = {
             currentLatitude: null,
             currentLongitude: null
          }
-
         navigator.geolocation.getCurrentPosition( (position)=> {
             geoData.currentLatitude = position.coords.latitude;
         });
@@ -196,9 +194,8 @@ $(()=> {
         });
 
         return geoData;
-    }
+    };
 
-    let geoData = getCurrentGeoData();
 
     $('#updateWheel').on("click", (event)=> {
         event.preventDefault();
