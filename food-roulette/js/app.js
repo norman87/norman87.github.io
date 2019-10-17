@@ -113,6 +113,13 @@ $(()=> {
 
     drawSpinningWheel();
 
+    function rotTween(to) {
+        let i = d3.interpolate(0, rotation);
+        return function(t) {
+        return "rotate(" + i(t) + ")";
+        };
+    }
+
     function spin(d){
         let pieSlice = 360/restaurantData.length;
         let rng = Math.floor((Math.random() * 1440) + 360);
@@ -164,13 +171,7 @@ $(()=> {
         .text("SPIN")
         .style({"font-weight":"bold", "font-size":"30px"});
 
-        function rotTween(to) {
-          var i = d3.interpolate(0, rotation);
-          return function(t) {
-            return "rotate(" + i(t) + ")";
-        };
 
-    }
 
         function shuffle(array) {
             for (let i= array.length - 1; i>0; i--) {

@@ -1,6 +1,6 @@
 text{
-    font-family:Helvetica, Arial, sans-serif;
-    font-size:11px;
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size:15px;
     pointer-events:none;
 }
 
@@ -42,10 +42,6 @@ h1 {
     font-family: 'Mouse Memoirs', sans-serif;
     font-size: 80px;
 
-}
-
-.slice {
-    font-family: 'Mouse Memoirs', sans-serif;
 }
 
 body {
