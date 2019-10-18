@@ -110,6 +110,15 @@ $(()=> {
 
     };
 
+    function checkIfImageAvailable (imageUrl) {
+        if (imageUrl === "") {
+            return "https://tfkru2exl1c11xfih48h8lmg6y-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/image-coming-soon.jpg";
+        }
+        else {
+            return restaurantData[picked].restaurant.featured_image;
+        }
+    }
+
     drawSpinningWheel();
 
     function checkIfNull (value) {
@@ -150,11 +159,16 @@ $(()=> {
 
 
         $('#restaurantTiming').remove();
-        $('#popUpContent > .row').eq(1).append($('<h3>').attr("id", "restaurantTiming").text("Opening Hours: "+ checkIfNull(restaurantData[picked].restaurant.timings)));
+        $('#popUpContent > .row').eq(0).append($('<h3>').attr("id", "restaurantTiming").text("Opening Hours: "+ checkIfNull(restaurantData[picked].restaurant.timings)));
 
         $('#phoneNumber').remove();
-        $('#popUpContent > .row').eq(2).append($('<h3>').attr("id", "phoneNumber").text("Contact Number: "+ checkIfNull(restaurantData[picked].restaurant.phone_numbers)));
+        $('#popUpContent > .row').eq(1).append($('<h3>').attr("id", "phoneNumber").text("Contact Number: "+ checkIfNull(restaurantData[picked].restaurant.phone_numbers)));
 
+        $('#webSiteLink').remove();
+        $('#popUpContent > .row').eq(2).append($('<a>').attr({"id": "webSiteLink", "href": restaurantData[picked].restaurant.url, "target": "_blank"}).text("Check out our website!"));
+
+        $('.row > img').remove();
+        $('#popUpContent > .row').eq(3).append($('<img>').attr("src", checkIfImageAvailable(restaurantData[picked].restaurant.featured_image)));
 
         // $('#map').remove();
         // $('#popUpContent > .row').eq(4).append($('<div>').attr('id','map'))

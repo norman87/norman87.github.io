@@ -65,3 +65,8 @@ table {
 #map {
     height: 100%;
 }
+
+.row > img {
+    width: 50%;
+    height: 10%;
+}
