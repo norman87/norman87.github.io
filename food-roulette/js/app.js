@@ -112,6 +112,15 @@ $(()=> {
 
     drawSpinningWheel();
 
+    function checkIfNull (value) {
+        if(value === "") {
+            return "Not Available"
+        }
+        else {
+            return value;
+        };
+    }
+
     function rotTween(to) {
         let i = d3.interpolate(0, rotation);
         return function(t) {
@@ -137,15 +146,15 @@ $(()=> {
 
         soundEffect('sounds/spinning_soundeffect.wav');
 
-        $('#restaurantName').remove();
-        // $('#popUpContent > .row').eq(1).append($('<h2>').attr("id", "restaurantName").text(restaurantData[picked].restaurant.name));
-        $('#popUpContent > .row').eq(1).eq(0).attr("id", "restaurantName").text(restaurantData[picked].restaurant.name);
+        $('#modalTitle').text(restaurantData[picked].restaurant.name).css("font-size", "60px");
+
 
         $('#restaurantTiming').remove();
-        $('#popUpContent > .row').eq(2).append($('<h2>').attr("id","restaurantTiming").text(restaurantData[picked].restaurant.timings));
+        $('#popUpContent > .row').eq(1).append($('<h3>').attr("id", "restaurantTiming").text("Opening Hours: "+ checkIfNull(restaurantData[picked].restaurant.timings)));
 
         $('#phoneNumber').remove();
-        $('#popUpContent > .row').eq(3).append($('<h2>').attr("id","phoneNumber").text(restaurantData[picked].restaurant.phone_numbers));
+        $('#popUpContent > .row').eq(2).append($('<h3>').attr("id", "phoneNumber").text("Contact Number: "+ checkIfNull(restaurantData[picked].restaurant.phone_numbers)));
+
 
         // $('#map').remove();
         // $('#popUpContent > .row').eq(4).append($('<div>').attr('id','map'))

@@ -78,7 +78,7 @@
           <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title" id="exampleModalLabel">ANYTHING LAH! has decided for you:</h2>
+                    <h2 class="modal-title" id="modalTitle">ANYTHING LAH! has decided for you!</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -87,23 +87,15 @@
                   <div class="container-fluid" id="popUpContent">
 
                     <div class="row">
-                        <h2>ANYTHING LAH! has decided for you:</h2>
+
                     </div>
 
                     <div class="row">
-                        <h3>Name:</h3>
+
                     </div>
 
                     <div class="row">
-                        <h3>Opening Hours:</h3>
-                    </div>
 
-                    <div class="row">
-                        <h3>Phone Number:</h3>
-                    </div>
-
-                    <div class="row">
-                        <div id="map"></div>
                     </div>
 
                   </div>
@@ -111,6 +103,7 @@
             </div>
           </div>
         </div>
+            <div id="map"></div>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdBQ2oSTl2VhRWuZAn45qHeJAHNLDvipY"></script>
             <script>
                 var map = new google.maps.Map(document.getElementById('map'), {
