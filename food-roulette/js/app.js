@@ -286,9 +286,9 @@ $(()=> {
         }
 
         $.ajax({
-            // url:'https://developers.zomato.com/api/v2.1/search?start=0&count='+ nearestSelect +'&lat='+geoData.currentLatitude+'&lon='+geoData.currentLongitude+ '&sort=real_distance&order=asc',
+            url:'https://developers.zomato.com/api/v2.1/search?start=0&count='+ nearestSelect +'&lat='+geoData.currentLatitude+'&lon='+geoData.currentLongitude+ '&sort=real_distance&order=asc',
             //for testing at anson road location
-            url:'https://developers.zomato.com/api/v2.1/search?start=0&count='+ nearestSelect +'&lat=1.274367&lon=103.845528&sort=real_distance&order=asc',
+
             beforeSend: function(request) {
                 request.setRequestHeader("user-key", 'cb619e24ebc6119757f84903365decbd');
             }
