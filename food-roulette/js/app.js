@@ -1,10 +1,12 @@
+function initMap(latitude, longitude) {};
+
 $(()=> {
-    let padding = {top:20, right:40, bottom:0, left:0};
-    let width = 500 - padding.left - padding.right;
-    let height = 500 - padding.top  - padding.bottom;
+    let padding = {top:5, right:40, bottom:0, left:0};
+    let width = 600 - padding.left - padding.right;
+    let height = 600 - padding.top  - padding.bottom;
     let radius = Math.min(width, height)/2;
     let rotation = 0;
-    let picked = 100000;
+    let picked = 0;
 
     let color = d3.scale.category20b();
 
@@ -66,9 +68,6 @@ $(()=> {
             .duration(3000)
             .attrTween("transform", rotTween)
             .each("end", function () {
-                //mark question as seen
-                d3.select(".slice:nth-child(" + (picked + 1) + ") path")
-                    .attr("fill", "#112");
                 console.log(restaurantData[picked].restaurant.name);
             });
     }
@@ -145,6 +144,11 @@ $(()=> {
         $('#phoneNumber').remove();
         $('#popUpContent > .row').eq(3).append($('<h2>').attr("id","phoneNumber").text(restaurantData[picked].restaurant.phone_numbers));
 
+        $('#map').remove();
+        $('#popUpContent > .row').eq(4).append($('<div>').attr('id','map'))
+
+        initMap(restaurantData[picked].restaurant.location.latitude, restaurantData[picked].restaurant.location.longitude);
+
         setTimeout(function() {
             $('#popUpModal').modal('show');
         }, 3000);
@@ -200,6 +204,15 @@ $(()=> {
         $('#restaurantList > tbody').append($('<tr>').append($('<td>').text(restaurant)));
     }
 
+    let map;
+
+    function initMap (latitude, longitude) {
+        map = new google.maps.Map($('#map'), {
+            center: {lat: latitude, lng: longitude},
+            zoom: 8
+        });
+    }
+
     $('#updateWheel').on("click", (event)=> {
         event.preventDefault();
 
@@ -220,7 +233,8 @@ $(()=> {
         }
 
         $.ajax({
-            url:'https://developers.zomato.com/api/v2.1/search?start=0&count='+ nearestSelect +'&lat='+geoData.currentLatitude+'&lon='+geoData.currentLongitude+ '&sort=real_distance&order=asc',
+            // url:'https://developers.zomato.com/api/v2.1/search?start=0&count='+ nearestSelect +'&lat='+geoData.currentLatitude+'&lon='+geoData.currentLongitude+ '&sort=real_distance&order=asc',
+            url:'https://developers.zomato.com/api/v2.1/search?start=0&count='+ nearestSelect +'&lat=1.274367&lon=103.845528&sort=real_distance&order=asc',
             beforeSend: function(request) {
                 request.setRequestHeader("user-key", 'cb619e24ebc6119757f84903365decbd');
             }
@@ -231,6 +245,8 @@ $(()=> {
 
                 shuffle(data.restaurants);
 
+                $('tbody > tr').remove();
+
                 for (let i=0; i<10; i++) {
                     restaurantData.push(data.restaurants[i]);
                     console.log(restaurantData[i].restaurant.name);
@@ -238,12 +254,9 @@ $(()=> {
                 };
                 console.log(restaurantData);
 
-
-
                 $('.slice > path').remove();
                 $('.slice > text').remove();
                 drawSpinningWheel();
-
 
             },
 
