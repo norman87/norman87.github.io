@@ -151,11 +151,10 @@ $(()=> {
 
         setTimeout(function() {
             $('#popUpModal').modal('show');
+            soundEffect('sounds/tada.flac');
         }, 3000);
 
-        setTimeout(function() {
-            soundEffect('sounds/tada.wav');
-        }, 3000);
+
     }
 
     // cretae spin logo and triangle pointer
