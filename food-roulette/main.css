@@ -61,3 +61,7 @@ table {
 .form-group {
     padding: 20px;
 }
+
+#map {
+    height: 100%;
+}

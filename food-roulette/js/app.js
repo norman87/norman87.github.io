@@ -1,3 +1,5 @@
+// let map
+
 $(()=> {
     let padding = {top:5, right:40, bottom:0, left:0};
     let width = 600 - padding.left - padding.right;
@@ -144,10 +146,12 @@ $(()=> {
         $('#phoneNumber').remove();
         $('#popUpContent > .row').eq(3).append($('<h2>').attr("id","phoneNumber").text(restaurantData[picked].restaurant.phone_numbers));
 
-        $('#map').remove();
-        $('#popUpContent > .row').eq(4).append($('<div>').attr('id','map'))
+        // $('#map').remove();
+        // $('#popUpContent > .row').eq(4).append($('<div>').attr('id','map'))
 
-        initMap(restaurantData[picked].restaurant.location.latitude, restaurantData[picked].restaurant.location.longitude);
+        // initMap(parseFloat(restaurantData[picked].restaurant.location.latitude), parseFloat(restaurantData[picked].restaurant.location.longitude));
+
+        // initMap();
 
         setTimeout(function() {
             $('#popUpModal').modal('show');
@@ -205,14 +209,21 @@ $(()=> {
         $('#restaurantList > tbody').append($('<tr>').append($('<td>').text(restaurant)));
     }
 
-    let map;
+    // let map;
 
-    function initMap (latitude, longitude) {
-        map = new google.maps.Map($('#map'), {
-            center: {lat: latitude, lng: longitude},
-            zoom: 8
-        });
-    }
+    // function initMap (latitude, longitude) {
+    //     map = new google.maps.Map($('#map'), {
+    //         center: {lat: latitude, lng: longitude},
+    //         zoom: 8
+    //     });
+    // }
+
+    // function initMap (latitude, longitude) {
+    //     map = new google.maps.Map(document.getElementById('map'), {
+    //         center: {lat: -34.397, lng: 150.644},
+    //         zoom: 8
+    //     });
+    // }
 
     function soundEffect (soundUrl) {
         let sound = new Audio(soundUrl);
