@@ -168,7 +168,7 @@ $(()=> {
         $('#popUpContent > .row').eq(2).append($('<a>').attr({"id": "webSiteLink", "href": restaurantData[picked].restaurant.url, "target": "_blank"}).text("Check out our website!"));
 
         $('#goThere').remove();
-        $('#popUpContent > .row').eq(3).append($('<a>').attr({"id": "goThere", "href": "http://maps.google.com/?q="+ restaurantData[picked].restaurant.location.latitude +", "+ restaurantData[picked].restaurant.location.longitude, "target": "_blank"}).text("Click out our location!"));
+        $('#popUpContent > .row').eq(3).append($('<a>').attr({"id": "goThere", "href": "http://maps.google.com/?q="+ restaurantData[picked].restaurant.location.latitude +", "+ restaurantData[picked].restaurant.location.longitude, "target": "_blank"}).text("Check out our location!"));
 
         $('.row > img').remove();
         $('#popUpContent > .row').eq(4).append($('<img>').attr("src", checkIfImageAvailable(restaurantData[picked].restaurant.featured_image)));
@@ -286,9 +286,9 @@ $(()=> {
         }
 
         $.ajax({
-            url:'https://developers.zomato.com/api/v2.1/search?start=0&count='+ nearestSelect +'&lat='+geoData.currentLatitude+'&lon='+geoData.currentLongitude+ '&sort=real_distance&order=asc',
+            // url:'https://developers.zomato.com/api/v2.1/search?start=0&count='+ nearestSelect +'&lat='+geoData.currentLatitude+'&lon='+geoData.currentLongitude+ '&sort=real_distance&order=asc',
             //for testing at anson road location
-            // url:'https://developers.zomato.com/api/v2.1/search?start=0&count='+ nearestSelect +'&lat=1.274367&lon=103.845528&sort=real_distance&order=asc',
+            url:'https://developers.zomato.com/api/v2.1/search?start=0&count='+ nearestSelect +'&lat=1.274367&lon=103.845528&sort=real_distance&order=asc',
             beforeSend: function(request) {
                 request.setRequestHeader("user-key", 'cb619e24ebc6119757f84903365decbd');
             }
