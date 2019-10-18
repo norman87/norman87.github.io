@@ -167,8 +167,11 @@ $(()=> {
         $('#webSiteLink').remove();
         $('#popUpContent > .row').eq(2).append($('<a>').attr({"id": "webSiteLink", "href": restaurantData[picked].restaurant.url, "target": "_blank"}).text("Check out our website!"));
 
+        $('#goThere').remove();
+        $('#popUpContent > .row').eq(3).append($('<a>').attr({"id": "goThere", "href": "http://maps.google.com/?q="+ restaurantData[picked].restaurant.location.latitude +", "+ restaurantData[picked].restaurant.location.longitude, "target": "_blank"}).text("Click out our location!"));
+
         $('.row > img').remove();
-        $('#popUpContent > .row').eq(3).append($('<img>').attr("src", checkIfImageAvailable(restaurantData[picked].restaurant.featured_image)));
+        $('#popUpContent > .row').eq(4).append($('<img>').attr("src", checkIfImageAvailable(restaurantData[picked].restaurant.featured_image)));
 
         // $('#map').remove();
         // $('#popUpContent > .row').eq(4).append($('<div>').attr('id','map'))
