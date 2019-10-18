@@ -138,7 +138,8 @@ $(()=> {
         soundEffect('sounds/spinning_soundeffect.wav');
 
         $('#restaurantName').remove();
-        $('#popUpContent > .row').eq(1).append($('<h2>').attr("id", "restaurantName").text(restaurantData[picked].restaurant.name));
+        // $('#popUpContent > .row').eq(1).append($('<h2>').attr("id", "restaurantName").text(restaurantData[picked].restaurant.name));
+        $('#popUpContent > .row').eq(1).eq(0).attr("id", "restaurantName").text(restaurantData[picked].restaurant.name);
 
         $('#restaurantTiming').remove();
         $('#popUpContent > .row').eq(2).append($('<h2>').attr("id","restaurantTiming").text(restaurantData[picked].restaurant.timings));
