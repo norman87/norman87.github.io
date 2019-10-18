@@ -232,9 +232,15 @@ $(()=> {
         return geoData;
     };
 
+    // function appendRestaurantNamesIntoTable (restaurant) {
+    //     $('#restaurantList > tbody').append($('<tr>').append($('<td>').text(restaurant)));
+    // }
+
     function appendRestaurantNamesIntoTable (restaurant) {
-        $('#restaurantList > tbody').append($('<tr>').append($('<td>').text(restaurant)));
+        $('#restaurantList > tbody').append($('<tr>').append($('<td>').append($('<a>').attr({"href": restaurant.url, "target": "_blank"}).text(restaurant.name))));
     }
+
+    //tried to show an embedded google maps but can't get it to work. used an alternative method to bring user to google maps in a new browser tab
 
     // let map;
 
@@ -298,7 +304,7 @@ $(()=> {
                 for (let i=0; i<10; i++) {
                     restaurantData.push(data.restaurants[i]);
                     console.log(restaurantData[i].restaurant.name);
-                    appendRestaurantNamesIntoTable(restaurantData[i].restaurant.name);
+                    appendRestaurantNamesIntoTable(restaurantData[i].restaurant);
                 };
                 console.log(restaurantData);
 
