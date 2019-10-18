@@ -1,5 +1,3 @@
-function initMap(latitude, longitude) {};
-
 $(()=> {
     let padding = {top:5, right:40, bottom:0, left:0};
     let width = 600 - padding.left - padding.right;
@@ -135,6 +133,8 @@ $(()=> {
 
         spinningAnimation(vis, rotTween, picked, restaurantData);
 
+        soundEffect('sounds/spinning_soundeffect.wav');
+
         $('#restaurantName').remove();
         $('#popUpContent > .row').eq(1).append($('<h2>').attr("id", "restaurantName").text(restaurantData[picked].restaurant.name));
 
@@ -153,6 +153,9 @@ $(()=> {
             $('#popUpModal').modal('show');
         }, 3000);
 
+        setTimeout(function() {
+            soundEffect('sounds/tada.wav');
+        }, 3000);
     }
 
     // cretae spin logo and triangle pointer
@@ -212,16 +215,16 @@ $(()=> {
         });
     }
 
-    function buttonClickSound () {
-        let sound = new Audio('sounds/button_click.wav');
+    function soundEffect (soundUrl) {
+        let sound = new Audio(soundUrl);
         sound.play();
     }
 
     $('#updateWheel').on("click", (event)=> {
 
-        buttonClickSound();
-
         event.preventDefault();
+
+        soundEffect('sounds/button_click.wav');
 
         container.on("click", spin);
 
