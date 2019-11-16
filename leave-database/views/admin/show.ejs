@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head.ejs%>
+  </head>
+  <body>
+    <h1><%=employee.firstName%> <%=employee.lastName%>'s Page</h1>
+    <p>
+      <b>First Name:</b> <%=employee.firstName%><br />
+      <b>Last Name:</b> <%=employee.lastName%><br />
+      <b>Date of Employment:</b> <%=employee.dateEmployed%><br />
+      <b>Date of Birth:</b> <%=employee.dateOfBirth%><br />
+      <b>Gender:</b> <%=employee.gender%><br />
+      <b>Nationality:</b> <%=employee.nationality%><br />
+      <b>Leave Balance:</b> <%=employee.leaveBalance%><br />
+      <b>Username:</b> <%=employee.username%><br />
+      <b>Password:</b> <%=employee.password%>
+    </p>
+    <a href="/admin/<%=employee._id%>/edit">Update Particulars</a><br />
+    <a href="/admin">Return to Admin Dashboard</a>
+  </body>
+</html>

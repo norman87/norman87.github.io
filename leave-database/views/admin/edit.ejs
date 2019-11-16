@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head.ejs%>
+  </head>
+  <body>
+    <h1>Update <%=employee.firstName%> <%=employee.lastName%>'s Particulars</h1>
+    <form action="/admin/<%=employee._id%>?_method=PUT" method="POST">
+      First Name:
+      <input
+        type="text"
+        name="firstName"
+        value="<%=employee.firstName%>"
+      /><br />
+      Last Name:
+      <input type="text" name="lastName" value="<%=employee.lastName%>" /><br />
+      Date of Employment: <input type="date" name="dateEmployed" /><br />
+      Date of Birth: <input type="date" name="dateOfBirth" /><br />
+      Gender: <input type="text" name="gender" /><br />
+      Nationality: <input type="text" name="nationality" /><br />
+      Leave Balance: <input type="number" name="leaveBalance" /><br />
+      Username: <input type="text" name="username" /><br />
+      Password: <input type="text" name="password" /><br />
+      <!-- isActive: <input type="boolean" name="isActive" /><br />
+        isAdmin: <input type="boolean" name="isAdmin" /><br /> -->
+      <input type="submit" value="Update" />
+    </form>
+    <a href="/admin">Return to Admin Dashboard</a>
+  </body>
+</html>
