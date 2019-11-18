@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head.ejs%>
+  </head>
+  <body>
+    <h1>Apply for Leave</h1>
+    <h2>Welcome <%=employee.firstName%> <%=employee.lastName%>!</h2>
+    <form action="/user/<%=employee._id%>" method="POST">
+      Start Date: <input type="date" name="startDate" /><br />
+      End Date: <input type="date" name="endDate" /><br />
+      Number of Days: <input type="number" name="numberOfDays" /><br />
+      <input type="hidden" name="employeeId" value="<%=employee._id%>" />
+      <input type="submit" value="Apply for leave" />
+    </form>
+  </body>
+</html>

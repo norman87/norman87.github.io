@@ -1,11 +1,11 @@
 const express = require("express");
-const controllers = express.Router();
+const admin = express.Router();
 const Employee = require("../models/employees.js");
 const Leave = require("../models/leave.js");
 
 //routes
 //admin - dashboard
-controllers.get("/admin", (req, res) => {
+admin.get("/admin", (req, res) => {
   Employee.find({}, (err, allEmployees) => {
     res.render("./admin/index.ejs", {
       employees: allEmployees
@@ -14,12 +14,12 @@ controllers.get("/admin", (req, res) => {
 });
 
 //admin - add new employee form
-controllers.get("/admin/new", (req, res) => {
+admin.get("/admin/new", (req, res) => {
   res.render("./admin/new.ejs");
 });
 
 //admin - show employee
-controllers.get("/admin/:id", (req, res) => {
+admin.get("/admin/:id", (req, res) => {
   Employee.findById(req.params.id, (err, foundEmployee) => {
     res.render("./admin/show.ejs", {
       employee: foundEmployee
@@ -28,7 +28,7 @@ controllers.get("/admin/:id", (req, res) => {
 });
 
 //admin - add new employee
-controllers.post("/admin", (req, res) => {
+admin.post("/admin", (req, res) => {
   Employee.create(req.body, (err, createdUser) => {
     if (err) {
       console.log(err);
@@ -39,7 +39,7 @@ controllers.post("/admin", (req, res) => {
 });
 
 //admin - edit employee's particulars form
-controllers.get("/admin/:id/edit", (req, res) => {
+admin.get("/admin/:id/edit", (req, res) => {
   Employee.findById(req.params.id, (err, foundEmployee) => {
     res.render("./admin/edit.ejs", {
       employee: foundEmployee
@@ -48,7 +48,7 @@ controllers.get("/admin/:id/edit", (req, res) => {
 });
 
 //admin - update employee's particulars
-controllers.put("/admin/:id", (req, res) => {
+admin.put("/admin/:id", (req, res) => {
   Employee.findByIdAndUpdate(
     req.params.id,
     req.body,
@@ -60,40 +60,10 @@ controllers.put("/admin/:id", (req, res) => {
 });
 
 //admin - delete employee data
-controllers.delete("/admin/:id", (req, res) => {
+admin.delete("/admin/:id", (req, res) => {
   Employee.findByIdAndRemove(req.params.id, (err, data) => {
     res.redirect("/admin");
   });
 });
 
-//user - dashboard
-controllers.get("/user/:id", (req, res) => {
-  Leave.find({ applicantID: req.params.id }, (err, foundLeave) => {
-    res.render("./user/index.ejs", {
-      leave: foundLeave,
-      employeeId: req.params.id
-    });
-  });
-});
-
-//user - leave application form
-controllers.get("/user/:id/new", (req, res) => {
-  Employee.findById(req.params.id, (err, foundEmployee) => {
-    res.render("./user/new.ejs", {
-      employee: foundEmployee
-    });
-  });
-});
-
-//user - create leave application
-controllers.post("/user/:id", (req, res) => {
-  Leave.create(req.body, (err, createdLeave) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log(createdLeave);
-    res.redirect(`/user/${req.params.id}`);
-  });
-});
-
-module.exports = controllers;
+module.exports = admin;

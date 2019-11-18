@@ -14,6 +14,7 @@
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
               <th scope="col">Leave Balance</th>
+              <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,11 @@
                     <td><a href="/admin/<%=employees[i]._id%>"><%=employees[i].firstName%></a></td>
                     <td><a href="/admin/<%=employees[i]._id%>"><%=employees[i].lastName%></a></td>
                     <td><a href="/admin/<%=employees[i]._id%>"><%=employees[i].leaveBalance%></a></td>
+                    <td>
+                        <form action="/admin/<%=employees[i]._id%>?_method=DELETE" method="POST">
+                            <input type="submit" value="DELETE">
+                        </form>
+                    </td>
                 </tr>        
             <%}%>
         </tbody>
