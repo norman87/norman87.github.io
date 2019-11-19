@@ -4,7 +4,8 @@
     <% include ../partials/head.ejs%>
   </head>
   <body>
-    <h1><%=employee.firstName%> <%=employee.lastName%>'s Dashboard</h1>
+    <h1>User Dashboard</h1>
+    <h2>Welcome <%=employee.firstName%> <%=employee.lastName%>!</h2>
     <a href="/user/<%=employee._id%>/new">Apply for Leave</a><br />
 
   </table>
@@ -24,9 +25,9 @@
         <%for (i=0; i<leave.length; i++) {%>
           <tr>
               <td><%=i+1%></td>
-              <td><%=(leave[i].startDate).getDate() + '-' + (leave[i].startDate).getMonth() + '-' + (leave[i].startDate).getFullYear()%></td>
-              <td><%=(leave[i].endDate).getDate() + '-' + (leave[i].endDate).getMonth() + '-' + (leave[i].endDate).getFullYear()%></td>
-              <td><%=(leave[i].created_at).getDate() + '-' + (leave[i].created_at).getMonth() + '-' + (leave[i].created_at).getFullYear()%></td>
+              <td><%=(leave[i].startDate).getDate() + '-' + ((leave[i].startDate).getMonth() + 1) + '-' + (leave[i].startDate).getFullYear()%></td>
+              <td><%=(leave[i].endDate).getDate() + '-' + ((leave[i].endDate).getMonth() + 1 )+ '-' + (leave[i].endDate).getFullYear()%></td>
+              <td><%=(leave[i].created_at).getDate() + '-' + ((leave[i].created_at).getMonth() + 1) + '-' + (leave[i].created_at).getFullYear()%></td>
               <td><%=leave[i].numberOfDays%></td>
               <td><%=leave[i].approvalStatus%></td>
           </tr>        
