@@ -2,6 +2,7 @@ const express = require("express");
 const sessions = express.Router();
 const Employee = require("../models/employees.js");
 const Leave = require("../models/leave.js");
+const bcrypt = require("bcrypt");
 
 sessions.get("/sessions/new", (req, res) => {
   res.render("./sessions/new.ejs");
@@ -18,14 +19,14 @@ sessions.post("/sessions", (req, res) => {
       res.send("user not found!");
     } else {
       if (
-        req.body.password == foundUser.password &&
+        bcrypt.compareSync(req.body.password, foundUser.password) &&
         foundUser.isAdmin === false
       ) {
         req.session.currentUser = foundUser;
         res.redirect(`/user/${foundUser._id}`);
         // if passwords don't match, handle the error
       } else if (
-        req.body.password == foundUser.password &&
+        bcrypt.compareSync(req.body.password, foundUser.password) &&
         foundUser.isAdmin === true
       ) {
         req.session.currentUser = foundUser;

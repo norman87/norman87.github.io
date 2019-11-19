@@ -2,6 +2,7 @@ const express = require("express");
 const admin = express.Router();
 const Employee = require("../models/employees.js");
 const Leave = require("../models/leave.js");
+const bcrypt = require("bcrypt");
 
 //routes
 //admin - dashboard
@@ -29,6 +30,10 @@ admin.get("/admin/:id", (req, res) => {
 
 //admin - add new employee
 admin.post("/admin", (req, res) => {
+  req.body.password = bcrypt.hashSync(
+    req.body.password,
+    bcrypt.genSaltSync(10)
+  );
   Employee.create(req.body, (err, createdUser) => {
     if (err) {
       console.log(err);
@@ -49,6 +54,10 @@ admin.get("/admin/:id/edit", (req, res) => {
 
 //admin - update employee's particulars
 admin.put("/admin/:id", (req, res) => {
+  req.body.password = bcrypt.hashSync(
+    req.body.password,
+    bcrypt.genSaltSync(10)
+  );
   Employee.findByIdAndUpdate(
     req.params.id,
     req.body,
