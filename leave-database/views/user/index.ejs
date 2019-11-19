@@ -7,6 +7,32 @@
     <h1>User Dashboard</h1>
     <h2>Welcome <%=employee.firstName%> <%=employee.lastName%>!</h2>
     <a href="/user/<%=employee._id%>/new">Apply for Leave</a><br />
-    <a href="/sessions/new">Log out</a>
+
+  </table>
+  <h2>Leave Application History</h2>
+  <table class="table">
+      <thead class="thead-dark">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Application Date</th>
+            <th scope="col">Number of Days</th>
+            <th scope="col">Approval Status</th>
+          </tr>
+      </thead>
+      <tbody>
+        <%for (i=0; i<leave.length; i++) {%>
+          <tr>
+              <td><%=i+1%></td>
+              <td><%=(leave[i].startDate).getDate() + '-' + (leave[i].startDate).getMonth() + '-' + (leave[i].startDate).getFullYear()%></td>
+              <td><%=(leave[i].endDate).getDate() + '-' + (leave[i].endDate).getMonth() + '-' + (leave[i].endDate).getFullYear()%></td>
+              <td><%=(leave[i].created_at).getDate() + '-' + (leave[i].created_at).getMonth() + '-' + (leave[i].created_at).getFullYear()%></td>
+              <td><%=leave[i].numberOfDays%></td>
+              <td></td>
+          </tr>        
+        <%}%>
+      </tbody>
+  </table>
   </body>
 </html>

@@ -7,25 +7,44 @@ const bcrypt = require("bcrypt");
 //routes
 //admin - dashboard
 admin.get("/admin", (req, res) => {
-  Employee.find({}, (err, allEmployees) => {
-    res.render("./admin/index.ejs", {
-      employees: allEmployees
+  if (req.session.currentUser) {
+    Employee.find({}, (err, allEmployees) => {
+      Leave.find()
+        .populate("employeeId")
+        .exec(function(err, foundLeave) {
+          if (err) return handleError(err);
+          // console.log(foundLeave);
+          res.render("./admin/index.ejs", {
+            employees: allEmployees,
+            leave: foundLeave
+          });
+        });
     });
-  });
+  } else {
+    res.redirect("/sessions/new");
+  }
 });
 
 //admin - add new employee form
 admin.get("/admin/new", (req, res) => {
-  res.render("./admin/new.ejs");
+  if (req.session.currentUser) {
+    res.render("./admin/new.ejs");
+  } else {
+    res.redirect("/sessions/new");
+  }
 });
 
 //admin - show employee
 admin.get("/admin/:id", (req, res) => {
-  Employee.findById(req.params.id, (err, foundEmployee) => {
-    res.render("./admin/show.ejs", {
-      employee: foundEmployee
+  if (req.session.currentUser) {
+    Employee.findById(req.params.id, (err, foundEmployee) => {
+      res.render("./admin/show.ejs", {
+        employee: foundEmployee
+      });
     });
-  });
+  } else {
+    res.redirect("/sessions/new");
+  }
 });
 
 //admin - add new employee

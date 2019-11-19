@@ -15,12 +15,18 @@ user.get("/user/:id/new", (req, res) => {
 //user - user dashboard
 user.get("/user/:id", (req, res) => {
   Employee.findById(req.params.id, (err, foundEmployee) => {
-    res.render("./user/index.ejs", {
-      employee: foundEmployee
-    });
+    Leave.find({ employeeId: req.params.id })
+      .populate("employeeId")
+      .exec(function(err, foundLeave) {
+        if (err) return handleError(err);
+        console.log(foundLeave);
+        res.render("./user/index.ejs", {
+          employee: foundEmployee,
+          leave: foundLeave
+        });
+      });
   });
 });
-
 //user - create leave application
 user.post("/user/:id", (req, res) => {
   Leave.create(req.body, (err, createdLeave) => {
