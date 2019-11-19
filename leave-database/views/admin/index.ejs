@@ -56,7 +56,7 @@
                 <td><%=(leave[i].startDate).getDate() + '-' + (leave[i].startDate).getMonth() + '-' + (leave[i].startDate).getFullYear()%></td>
                 <td><%=(leave[i].endDate).getDate() + '-' + (leave[i].endDate).getMonth() + '-' + (leave[i].endDate).getFullYear()%></td>
                 <td><%=leave[i].numberOfDays%></td>
-                <td></td>
+                <td><%=leave[i].approvalStatus%></td>
                 <td>
                   <form action="" method="POST">
                     <input type="submit" value="APPROVE">

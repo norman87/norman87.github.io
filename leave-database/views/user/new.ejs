@@ -14,6 +14,7 @@
       Number of Days: <input type="number" name="numberOfDays" /><br />
       <input type="hidden" name="employeeId" value="<%=employee._id%>" />
       <a href="/user/<%=employee._id%>">Return to User Dashboard</a><br />
+      <input type="hidden" name="approvalStatus" value="false" />
       <input type="submit" value="Apply for leave" />
     </form>
   </body>
