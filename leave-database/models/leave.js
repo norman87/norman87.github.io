@@ -6,7 +6,8 @@ const leaveSchema = new Schema(
     employeeId: { type: Schema.Types.ObjectID, ref: "Employee" },
     startDate: Date,
     endDate: Date,
-    numberOfDays: Number
+    numberOfDays: Number,
+    approvalStatus: Boolean
   },
   { timestamps: { createdAt: "created_at" } }
 );

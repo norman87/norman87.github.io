@@ -12,6 +12,15 @@ user.get("/user/:id/new", (req, res) => {
   });
 });
 
+//user - user dashboard
+user.get("/user/:id", (req, res) => {
+  Employee.findById(req.params.id, (err, foundEmployee) => {
+    res.render("./user/index.ejs", {
+      employee: foundEmployee
+    });
+  });
+});
+
 //user - create leave application
 user.post("/user/:id", (req, res) => {
   Leave.create(req.body, (err, createdLeave) => {

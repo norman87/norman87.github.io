@@ -10,9 +10,9 @@ const employeeSchema = new Schema({
   nationality: String,
   leaveBalance: Number,
   username: String,
-  password: String
+  password: String,
   //   isActive: Boolean,
-  //   isAdmin: Boolean
+  isAdmin: Boolean
 });
 
 const Employee = mongoose.model("Employee", employeeSchema);

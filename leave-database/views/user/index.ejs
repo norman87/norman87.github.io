@@ -5,7 +5,8 @@
   </head>
   <body>
     <h1>User Dashboard</h1>
-    <%=leave%>
-    <a href="/user/<%=employeeId%>/new">Apply for Leave</a>
+    <h2>Welcome <%=employee.firstName%> <%=employee.lastName%>!</h2>
+
+    <a href="/user/<%=employee._id%>/new">Apply for Leave</a>
   </body>
 </html>
