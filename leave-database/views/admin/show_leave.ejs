@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head.ejs%>
+  </head>
+  <body>
+    <h1>Leave Details</h1>
+    <p>
+      First Name: <%=leave.employeeId.firstName%><br />
+      Last Name: <%=leave.employeeId.lastName%><br />
+      Leave start date: <%=leave.startDate%><br />
+      Leave end date: <%=leave.endDate%><br />
+      Numer of days of leave: <%=leave.numberOfDays%>
+    </p>
+    <a href="/admin">Return to Admin Dashboard</a>
+  </body>
+</html>

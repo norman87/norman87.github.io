@@ -47,6 +47,25 @@ admin.get("/admin/:id", (req, res) => {
   }
 });
 
+//admin - show leave details
+admin.get("/admin/:id/leave", (req, res) => {
+  if (req.session.currentUser) {
+    Employee.find({}, (err, allEmployees) => {
+      Leave.findById(req.params.id)
+        .populate("employeeId")
+        .exec(function(err, foundLeave) {
+          if (err) return handleError(err);
+          console.log(foundLeave);
+          res.render("./admin/show_leave.ejs", {
+            leave: foundLeave
+          });
+        });
+    });
+  } else {
+    res.redirect("/sessions/new");
+  }
+});
+
 //admin - add new employee
 admin.post("/admin", (req, res) => {
   req.body.password = bcrypt.hashSync(

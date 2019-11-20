@@ -51,7 +51,7 @@
         <tbody>
           <%for (i=0; i<leave.length; i++) {%>
             <tr>
-                <td><%=i+1%></td>
+                <td><a href="/admin/<%=leave[i]._id%>/leave"><%=i+1%></a></td>
                 <td><%=leave[i].employeeId.firstName%></td>
                 <td><%=leave[i].employeeId.lastName%></td>
                 <td><%=(leave[i].startDate).getDate() + '-' + ((leave[i].startDate).getMonth() + 1) + '-' + (leave[i].startDate).getFullYear()%></td>
