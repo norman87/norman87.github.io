@@ -64,11 +64,15 @@ admin.post("/admin", (req, res) => {
 
 //admin - edit employee's particulars form
 admin.get("/admin/:id/edit", (req, res) => {
-  Employee.findById(req.params.id, (err, foundEmployee) => {
-    res.render("./admin/edit.ejs", {
-      employee: foundEmployee
+  if (req.session.currentUser) {
+    Employee.findById(req.params.id, (err, foundEmployee) => {
+      res.render("./admin/edit.ejs", {
+        employee: foundEmployee
+      });
     });
-  });
+  } else {
+    res.redirect("/sessions/new");
+  }
 });
 
 //admin - update employee's particulars
