@@ -49,25 +49,25 @@ body {
 }
 
 .text-center {
-    width: 25%;
-    min-width: 300px;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 3px 3px 7px grey;
-    background-color: white;
-    margin-left: 70%;
-    margin-right: 100px;
+  width: 25%;
+  min-width: 300px;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 3px 3px 7px grey;
+  background-color: white;
+  margin-left: 70%;
+  margin-right: 100px;
 }
 
 @media (max-width: 700px) {
-    .text-center {
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .text-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 body {
-    background-image: url("https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-position: center;
-    background-size: cover;
+  background-image: url("https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: center;
+  background-size: cover;
 }

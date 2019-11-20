@@ -11,6 +11,7 @@ const PORT = process.env.PORT;
 const mongoURI = process.env.MONGODB_URI;
 
 // Middleware
+app.use(express.static("public"));
 // allows us to use put and delete methods
 app.use(methodOverride("_method"));
 // parses info from our input fields into an object
