@@ -110,6 +110,8 @@ admin.put("/admin/:id", (req, res) => {
   );
 });
 
+//admin - approve button
+
 //admin - delete employee data
 admin.delete("/admin/:id", (req, res) => {
   Employee.findByIdAndRemove(req.params.id, (err, data) => {
