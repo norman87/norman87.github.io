@@ -5,7 +5,7 @@ const Leave = require("../models/leave.js");
 const bcrypt = require("bcrypt");
 
 sessions.get("/sessions/new", (req, res) => {
-  res.render("./sessions/newv2.ejs");
+  res.render("./sessions/new.ejs");
 });
 
 sessions.post("/sessions", (req, res) => {

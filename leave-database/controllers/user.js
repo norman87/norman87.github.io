@@ -18,6 +18,8 @@ user.get("/user/:id/new", (req, res) => {
 
 //user - user dashboard
 user.get("/user/:id", (req, res) => {
+  console.log("current user");
+  console.log(req.session.currentUser);
   if (req.session.currentUser) {
     Employee.findById(req.params.id, (err, foundEmployee) => {
       Leave.find({ employeeId: req.params.id })
