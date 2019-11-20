@@ -7,7 +7,8 @@ const leaveSchema = new Schema(
     startDate: Date,
     endDate: Date,
     numberOfDays: Number,
-    approvalStatus: Boolean
+    approvalStatus: String,
+    reason: String
   },
   { timestamps: { createdAt: "created_at" } }
 );

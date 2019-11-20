@@ -12,9 +12,10 @@
       End Date:
       <input type="date" name="endDate" /><br />
       Number of Days: <input type="number" name="numberOfDays" /><br />
+      Reason: <input type="text" name="reason" /><br />
       <input type="hidden" name="employeeId" value="<%=employee._id%>" />
       <a href="/user/<%=employee._id%>">Return to User Dashboard</a><br />
-      <input type="hidden" name="approvalStatus" value="false" />
+      <input type="hidden" name="approvalStatus" value="Pending Approval" />
       <input type="submit" value="Apply for leave" />
     </form>
   </body>

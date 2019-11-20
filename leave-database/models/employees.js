@@ -11,7 +11,6 @@ const employeeSchema = new Schema({
   leaveBalance: Number,
   username: String,
   password: String,
-  //   isActive: Boolean,
   isAdmin: Boolean
 });
 
