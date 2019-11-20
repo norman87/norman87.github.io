@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 //admin - dashboard
 admin.get("/admin", (req, res) => {
   if (req.session.currentUser) {
-    Employee.find({}, (err, allEmployees) => {
+    Employee.find({ isAdmin: false }, (err, allEmployees) => {
       Leave.find()
         .populate("employeeId")
         .exec(function(err, foundLeave) {
@@ -110,7 +110,31 @@ admin.put("/admin/:id", (req, res) => {
   );
 });
 
-//admin - approve button
+//admin - update approval status to approved
+admin.put("/admin/approve/:id", (req, res) => {
+  Leave.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: { approvalStatus: "Approved" }
+    },
+    (err, updatedModel) => {
+      res.redirect("/admin");
+    }
+  );
+});
+
+//admin - update approval status to approved
+admin.put("/admin/reject/:id", (req, res) => {
+  Leave.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: { approvalStatus: "Rejected" }
+    },
+    (err, updatedModel) => {
+      res.redirect("/admin");
+    }
+  );
+});
 
 //admin - delete employee data
 admin.delete("/admin/:id", (req, res) => {

@@ -20,13 +20,13 @@ user.get("/user/:id/new", (req, res) => {
 user.get("/user/:id", (req, res) => {
   console.log("current user");
   console.log(req.session.currentUser);
-  if (req.session.currentUser) {
+  if (req.session.currentUser._id === req.params.id) {
     Employee.findById(req.params.id, (err, foundEmployee) => {
       Leave.find({ employeeId: req.params.id })
         .populate("employeeId")
         .exec(function(err, foundLeave) {
           if (err) return handleError(err);
-          console.log(foundLeave);
+          // console.log(foundLeave);
           res.render("./user/index.ejs", {
             employee: foundEmployee,
             leave: foundLeave
@@ -34,7 +34,7 @@ user.get("/user/:id", (req, res) => {
         });
     });
   } else {
-    res.redirect("sessions/new");
+    res.redirect("/sessions/new");
   }
 });
 //user - create leave application
