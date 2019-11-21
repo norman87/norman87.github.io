@@ -1,29 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="../../../../favicon.ico" />
+
     <% include ../partials/head.ejs %>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
   </head>
-    <body>
-      <div class="container">
-        <h1>Log In</h1>
-        <div class="row">
-          <form class="col s12" action="/sessions" method="POST">
-            <div class="row">
-              <div class="input-field col s6">
-                <input placeholder="Placeholder" id="username" type="text" class="validate" name="username" required>
-                <label for="username">User Name</label>
-              </div>
+
+  <body>
+    <div class="text-center">
+      <img
+        class="mb-4"
+        src="images/futureprintlogo.jpg"
+        alt=""
+        width="50%"
+        height="50%"
+      />
+      <h1 class="h3 mb-3 font-weight-normal">Login Page</h1>
+      <div class="tab-content" id="myTabContent">
+        <div
+          class="tab-pane fade show active"
+          id="home"
+          role="tabpanel"
+          aria-labelledby="home-tab"
+        >
+          <form class="form-signin" action="/sessions" method="POST">
+            <label for="inputEmail" class="sr-only">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form-control"
+              placeholder="Username"
+              required
+              autofocus
+            />
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="Password"
+              required
+            />
+            <div class="checkbox mb-3">
+              <label>
+                <input type="checkbox" value="remember-me" /> Remember me <br />
+                <a href="">Forget Password</a>
+              </label>
             </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="password" type="password" class="validate" name="password" required>
-                <label for="password">Password</label>
-              </div>
-            </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-              <i class="material-icons right">send</i>
+            <button class="btn btn-lg btn-danger btn-block" type="submit">
+              Sign in
             </button>
+            <p class="mt-5 mb-3 text-muted">Future Print Pte Ltd &copy; 2019</p>
           </form>
         </div>
-    </body>
+
+      <!-- <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"
+      ></script> -->
+    </div>
+  </body>
 </html>
