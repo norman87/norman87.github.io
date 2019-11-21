@@ -13,11 +13,28 @@ admin.get("/admin", (req, res) => {
         .populate("employeeId")
         .exec(function(err, foundLeave) {
           if (err) return handleError(err);
-          // console.log(foundLeave);
-          res.render("./admin/index.ejs", {
-            employees: allEmployees,
-            leave: foundLeave
-          });
+          Leave.aggregate(
+            [
+              {
+                $match: { approvalStatus: "Approved" }
+              },
+              {
+                $group: {
+                  // employeeId: employeeId
+                  _id: { employeeId: "$employeeId" },
+                  numberOfDays: { $sum: "$numberOfDays" }
+                }
+              }
+            ],
+            (groupErr, leaveTaken) => {
+              console.log("HEREEEEEE: ", leaveTaken);
+              res.render("./admin/index.ejs", {
+                employees: allEmployees,
+                leave: foundLeave,
+                leaveTaken: leaveTaken
+              });
+            }
+          );
         });
     });
   } else {

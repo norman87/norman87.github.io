@@ -8,7 +8,21 @@
     <h2>Welcome <%=employee.firstName%> <%=employee.lastName%>!</h2>
     <a href="/user/<%=employee._id%>/new">Apply for Leave</a><br />
 
-  </table>
+    <h2>My Leave Overview</h2>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col">Leave Balance</th>
+              <th scope="col">Leave Taken</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+    </table>  
   <h2>Leave Application History</h2>
   <table class="table">
       <thead class="thead-dark">

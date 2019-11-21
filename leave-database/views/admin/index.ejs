@@ -14,6 +14,8 @@
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
               <th scope="col">Leave Balance</th>
+              <th scope="col">No. of days Taken</th>
+              <th scope="col"></th>
               <th scope="col"></th>
             </tr>
         </thead>
@@ -21,9 +23,22 @@
             <%for (let i=0; i<employees.length; i++) {%>
                 <tr>
                     <td><%=i+1%></td>
-                    <td><a href="/admin/<%=employees[i]._id%>"><%=employees[i].firstName%></a></td>
-                    <td><a href="/admin/<%=employees[i]._id%>"><%=employees[i].lastName%></a></td>
-                    <td><a href="/admin/<%=employees[i]._id%>"><%=employees[i].leaveBalance%></a></td>
+                    <td><%=employees[i].firstName%></td>
+                    <td><%=employees[i].lastName%></td>
+                    <td><%=employees[i].leaveBalance%></td>
+                    <td>
+                      <%=leaveTaken[0].numberOfDays%>
+                      <!-- <%for (let j=0; j<leaveTaken.length; j++) {%>
+                        <%if (employees[i]._id === leaveTaken[j]._id.employeeId) {%>
+                          <%=leaveTaken[j].numberOfDays%>
+                        <%}%>
+                      <%}%> -->
+                    </td>
+                    <td>
+                        <form action="/admin/<%=employees[i]._id%>">
+                            <input type="submit" value="VIEW DETAILS">
+                        </form>
+                    </td>
                     <td>
                         <form action="/admin/<%=employees[i]._id%>?_method=DELETE" method="POST">
                             <input type="submit" value="DELETE">
