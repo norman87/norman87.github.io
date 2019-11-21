@@ -27,12 +27,11 @@
                     <td><%=employees[i].lastName%></td>
                     <td><%=employees[i].leaveBalance%></td>
                     <td>
-                      <%=leaveTaken[0].numberOfDays%>
-                      <!-- <%for (let j=0; j<leaveTaken.length; j++) {%>
+                      <%for (let j=0; j<leaveTaken.length; j++) {%>
                         <%if (employees[i]._id === leaveTaken[j]._id.employeeId) {%>
                           <%=leaveTaken[j].numberOfDays%>
                         <%}%>
-                      <%}%> -->
+                      <%}%>
                     </td>
                     <td>
                         <form action="/admin/<%=employees[i]._id%>">
