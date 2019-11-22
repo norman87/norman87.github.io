@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 //routes
 //admin - dashboard
 admin.get("/admin/", (req, res) => {
-  if (req.session.currentUser._id) {
+  if (req.session.currentUser) {
     Employee.find({ isAdmin: false }, (err, allEmployees) => {
       Leave.find()
         .populate("employeeId")

@@ -18,19 +18,40 @@ user.get("/user/:id/new", (req, res) => {
 
 //user - user dashboard
 user.get("/user/:id", (req, res) => {
-  console.log("current user");
-  console.log(req.session.currentUser);
-  if (req.session.currentUser._id === req.params.id) {
+  // console.log("current user");
+  // console.log("HEREEEEEEEEEEEEEEQWEQWEE", req.session.currentUser);
+  if (req.session.currentUser) {
     Employee.findById(req.params.id, (err, foundEmployee) => {
       Leave.find({ employeeId: req.params.id })
         .populate("employeeId")
         .exec(function(err, foundLeave) {
           if (err) return handleError(err);
-          // console.log(foundLeave);
-          res.render("./user/index.ejs", {
-            employee: foundEmployee,
-            leave: foundLeave
-          });
+          //leave aggregate function not working, calculation done on browser
+          Leave.aggregate(
+            [
+              {
+                $match: {
+                  approvalStatus: "Approved",
+                  employeeId: req.params.id
+                }
+              },
+              {
+                $group: {
+                  numberOfDays: { $sum: "$numberOfDays" }
+                }
+              }
+            ],
+            (groupErr, leaveTaken) => {
+              console.log("LEAVEEEEEEEEEEE", leaveTaken);
+              res.render("./user/index.ejs", {
+                employee: foundEmployee,
+                leave: foundLeave,
+                leaveTaken: leaveTaken
+              });
+              console.log(foundEmployee);
+              console.log(foundLeave.length);
+            }
+          );
         });
     });
   } else {
