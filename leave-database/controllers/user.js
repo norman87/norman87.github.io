@@ -20,7 +20,7 @@ user.get("/user/:id/new", (req, res) => {
 user.get("/user/:id", (req, res) => {
   // console.log("current user");
   // console.log("HEREEEEEEEEEEEEEEQWEQWEE", req.session.currentUser);
-  if (req.session.currentUser) {
+  if (req.session.currentUser._id === req.params.id) {
     Employee.findById(req.params.id, (err, foundEmployee) => {
       Leave.find({ employeeId: req.params.id })
         .populate("employeeId")

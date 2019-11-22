@@ -18,16 +18,14 @@
           </thead>
           <tbody>
             <tr>
-              <td><%=employee.leaveBalance%></td>
-              <td>
                 <%let totalLeaveTaken = 0;%>
                 <%for (i=0; i<leave.length; i++) {%>
                   <%if (leave[i].approvalStatus === "Approved") {%>
                     <%totalLeaveTaken += leave[i].numberOfDays%>
                   <%}%>
                 <%}%>
-                <%=totalLeaveTaken%>
-              </td>
+                <td><%=employee.leaveBalance - totalLeaveTaken%></td>
+                <td><%=totalLeaveTaken%></td>
             </tr>
           </tbody>
     </table>  
