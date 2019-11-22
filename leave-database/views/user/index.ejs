@@ -52,9 +52,9 @@
               <td><%=leave[i].numberOfDays%></td>
               <td><%=leave[i].approvalStatus%></td>
               <td>
-                  <!-- <form action="/user/<%=leave[i]._id%>">
+                  <form action="/user/leave/<%=leave[i]._id%>?_method=DELETE" method="POST">
                     <button type="submit" class="btn btn-danger">DELETE</button>
-                </form> -->
+                </form>
               </td>
           </tr>        
         <%}%>

@@ -69,4 +69,10 @@ user.post("/user/:id", (req, res) => {
   });
 });
 
+user.delete("/user/leave/:id", (req, res) => {
+  Leave.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect(`/user/${req.session.currentUser._id}`);
+  });
+});
+
 module.exports = user;
