@@ -9,6 +9,9 @@ h2 {
 }
 
 #newEmployeeForm,
-#newLeaveForm {
+#newLeaveForm,
+#showLeaveForm,
+#showEmployeeDetails,
+#editEmployeeForm {
   margin: 30px;
 }

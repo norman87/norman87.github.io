@@ -45,16 +45,25 @@
                     <td><%=i+1%></td>
                     <td><%=employees[i].firstName%></td>
                     <td><%=employees[i].lastName%></td>
-                      <%for (let j=0; j<leaveTaken.length; j++) {%>
+                    <%for (let j=0; j<leaveTaken.length; j++) {%>
                         <%if (String(employees[i]._id) == String(leaveTaken[j]._id.employeeId)) {%>
-                          <%let leaveCounter = 0%>
+                          <td><%=employees[i].leaveBalance - leaveTaken[j].numberOfDays%></td>
+                          <td><%=leaveTaken[j].numberOfDays%></td>
+                        <%}%>
+                    <%}%>
+
+
+                      <!-- still cannot work -->
+                      <!-- <%for (let j=0; j<leaveTaken.length; j++) {%>
+                        <%let leaveCounter = 0%>
+                        <%if (String(employees[i]._id) == String(leaveTaken[j]._id.employeeId)) {%>
                           <%for (let k=0; k<leaveTaken.length; k++) {%>
                             <%if (String(employees[i]._id) == String(leaveTaken[k]._id.employeeId)) {%>
                               <%leaveCounter += 1;%>
                               <%console.log(employees[i].firstName)%>
-                              <%}%>
-                              <%}%>
-                              <%console.log(leaveCounter)%>
+                            <%}%>
+                          <%}%>
+                          <%console.log(leaveCounter)%>
                           <%if (leaveCounter === 0) {%>
                             <td>0</td>
                             <td>0</td>
@@ -63,7 +72,7 @@
                             <td><%=leaveTaken[j].numberOfDays%></td>
                           <%}%>
                         <%}%>
-                      <%}%>
+                      <%}%> -->
                     <td>
                         <form action="/admin/<%=employees[i]._id%>">
                             <button type="submit" class="btn btn-danger">VIEW DETAILS</button>

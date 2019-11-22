@@ -5,7 +5,131 @@
   </head>
   <body>
     <h1>Update <%=employee.firstName%> <%=employee.lastName%>'s Particulars</h1>
-    <form action="/admin/<%=employee._id%>?_method=PUT" method="POST">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/admin"
+              >Main Dashboard<span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+        <span class="navbar-text">
+          <form action="/sessions?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-light">LOGOUT</button>
+          </form>
+        </span>
+      </div>
+    </nav>
+    <form
+      action="/admin/<%=employee._id%>?_method=PUT"
+      id="editEmployeeForm"
+      method="POST"
+    >
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          name="firstName"
+          value="<%=employee.firstName%>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          name="lastName"
+          value="<%=employee.lastName%>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="dateEmployed">Date of Employment:</label>
+        <input
+          type="date"
+          class="form-control"
+          id="dateEmployed"
+          name="dateEmployed"
+          value="<%=employee.dateEmployed%>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of Birth:</label>
+        <input
+          type="date"
+          class="form-control"
+          id="dateOfBirth"
+          name="dateOfBirth"
+          value="<%=employee.dateOfBirth%>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input
+          type="text"
+          class="form-control"
+          id="gender"
+          value="<%=employee.gender%>"
+          name="gender"
+        />
+      </div>
+      <div class="form-group">
+        <label for="nationality">Nationality</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nationality"
+          value="<%=employee.nationality%>"
+          name="nationality"
+        />
+      </div>
+      <div class="form-group">
+        <label for="leaveBalance">Leave Balance</label>
+        <input
+          type="text"
+          class="form-control"
+          id="leaveBalance"
+          value="<%=employee.leaveBalance%>"
+          name="leaveBalance"
+        />
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          value="<%=employee.username%>"
+          name="username"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Password"
+          name="password"
+        />
+      </div>
+      <button type="submit" class="btn btn-danger">Update</button>
+    </form>
+    <!-- <form action="/admin/<%=employee._id%>?_method=PUT" method="POST">
       First Name:
       <input
         type="text"
@@ -46,8 +170,7 @@
       <input type="text" name="password" value="<%=employee.password%>" /><br />
       <!-- isActive: <input type="boolean" name="isActive" /><br />
         isAdmin: <input type="boolean" name="isAdmin" /><br /> -->
-      <input type="submit" value="Update" />
-    </form>
-    <a href="/admin">Return to Admin Dashboard</a>
+    <!-- </form>
+    <a href="/admin">Return to Admin Dashboard</a> -->
   </body>
 </html>

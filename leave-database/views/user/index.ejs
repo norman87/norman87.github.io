@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/user/<%=employee._id%>">User Dashboard<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/admin">Main Dashboard<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/user/<%=employee._id%>/new">Apply for Leave</a>
@@ -80,8 +80,8 @@
         <%}%>
       </tbody>
   </table>
-  <form action="/sessions?_method=DELETE" method="POST">
+  <!-- <form action="/sessions?_method=DELETE" method="POST">
     <input type="submit" value="Logout"/>
-  </form>
+  </form> -->
   </body>
 </html>

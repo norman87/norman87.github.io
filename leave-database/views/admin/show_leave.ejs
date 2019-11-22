@@ -5,14 +5,99 @@
   </head>
   <body>
     <h1>Leave Details</h1>
-    <p>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/admin"
+              >Main Dashboard<span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+        <span class="navbar-text">
+          <form action="/sessions?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-light">LOGOUT</button>
+          </form>
+        </span>
+      </div>
+    </nav>
+    <form id="showLeaveForm">
+      <fieldset disabled>
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input
+            type="text"
+            id="firstName"
+            class="form-control"
+            placeholder="<%=leave.employeeId.firstName%>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            class="form-control"
+            placeholder="<%=leave.employeeId.lastName%>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="leaveStartDate">Leave Start Date:</label>
+          <input
+            type="text"
+            id="leaveStartDate"
+            class="form-control"
+            placeholder="<%=leave.startDate%>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="leaveEndDate">Leave End Date:</label>
+          <input
+            type="text"
+            id="leaveEndDate"
+            class="form-control"
+            placeholder="<%=leave.endDate%>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="numberOfDays">Number of Days:</label>
+          <input
+            type="number"
+            id="numberOfDays"
+            class="form-control"
+            placeholder="<%=leave.numberOfDays%>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="reason">Reason:</label>
+          <input
+            type="text"
+            id="reason"
+            class="form-control"
+            placeholder="<%=leave.reason%>"
+          />
+        </div>
+      </fieldset>
+    </form>
+    <!-- <p>
       First Name: <%=leave.employeeId.firstName%><br />
       Last Name: <%=leave.employeeId.lastName%><br />
       Leave start date: <%=leave.startDate%><br />
       Leave end date: <%=leave.endDate%><br />
       Numer of days of leave: <%=leave.numberOfDays%><br />
       Reason: <%=leave.reason%>
-    </p>
-    <a href="/admin">Return to Admin Dashboard</a>
+    </p> -->
+    <!-- <a href="/admin">Return to Admin Dashboard</a> -->
   </body>
 </html>

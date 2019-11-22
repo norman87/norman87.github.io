@@ -5,7 +5,96 @@
   </head>
   <body>
     <h1><%=employee.firstName%> <%=employee.lastName%>'s Page</h1>
-    <p>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/admin"
+              >Main Dashboard<span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+        <span class="navbar-text">
+          <form action="/sessions?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-light">LOGOUT</button>
+          </form>
+        </span>
+      </div>
+    </nav>
+    <form id="showEmployeeDetails">
+      <fieldset disabled>
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input
+            type="text"
+            id="firstName"
+            class="form-control"
+            placeholder="<%=employee.firstName%>"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input
+            type="text"
+            id="lastName"
+            class="form-control"
+            placeholder="<%=employee.lastName%>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="dateEmployed">Date of Employment:</label>
+          <input
+            type="text"
+            id="dateEmployed"
+            class="form-control"
+            placeholder="<%=employee.dateEmployed%>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="dateOfBirth">Date of Birth:</label>
+          <input
+            type="text"
+            id="dateEmployed"
+            class="form-control"
+            placeholder="<%=employee.dateOfBirth%>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <input
+            type="text"
+            id="gender"
+            class="form-control"
+            placeholder="<%=employee.gender%>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="nationality">Nationality:</label>
+          <input
+            type="text"
+            id="nationality"
+            class="form-control"
+            placeholder="<%=employee.nationality%>"
+          />
+        </div>
+      </fieldset>
+    </form>
+    <form action="/admin/<%=employee._id%>/edit" id="newLeaveForm" method="GET">
+      <button type="submit" class="btn btn-danger">Update Particulars</button>
+    </form>
+    <!-- <p>
       <b>First Name:</b> <%=employee.firstName%><br />
       <b>Last Name:</b> <%=employee.lastName%><br />
       <b>Date of Employment:</b> <%=employee.dateEmployed%><br />
@@ -17,6 +106,6 @@
       <b>Password:</b> <%=employee.password%>
     </p>
     <a href="/admin/<%=employee._id%>/edit">Update Particulars</a><br />
-    <a href="/admin">Return to Admin Dashboard</a>
+    <a href="/admin">Return to Admin Dashboard</a> -->
   </body>
 </html>
