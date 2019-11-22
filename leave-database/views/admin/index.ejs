@@ -27,13 +27,26 @@
                     <td><%=employees[i].lastName%></td>
                       <%for (let j=0; j<leaveTaken.length; j++) {%>
                         <%if (String(employees[i]._id) == String(leaveTaken[j]._id.employeeId)) {%>
-                          <td><%=employees[i].leaveBalance - leaveTaken[j].numberOfDays%></td>
-                          <td><%=leaveTaken[j].numberOfDays%></td>
+                          <%let leaveCounter = 0%>
+                          <%for (let k=0; k<leaveTaken.length; k++) {%>
+                            <%if (String(employees[i]._id) == String(leaveTaken[k]._id.employeeId)) {%>
+                              <%leaveCounter += 1;%>
+                              <%console.log(employees[i].firstName)%>
+                              <%console.log(leaveCounter)%>
+                            <%}%>
+                          <%}%>
+                          <%if (leaveCounter === 0) {%>
+                            <td>0</td>
+                            <td>0</td>
+                          <%} else {%>
+                            <td><%=employees[i].leaveBalance - leaveTaken[j].numberOfDays%></td>
+                            <td><%=leaveTaken[j].numberOfDays%></td>
+                          <%}%>
                         <%}%>
                       <%}%>
                     <td>
                         <form action="/admin/<%=employees[i]._id%>">
-                            <input type="submit" value="VIEW DETAILS">
+                            <button type="submit" class="btn btn-danger">VIEW DETAILS</button>
                         </form>
                     </td>
                     <td>
@@ -73,17 +86,17 @@
                 <td><%=leave[i].approvalStatus%></td>
                 <td>
                     <form action="/admin/<%=leave[i]._id%>/leave">
-                      <input type="submit" value="VIEW DETAILS">
+                      <button type="submit" class="btn btn-danger">VIEW DETAILS</button>
                     </form>
                   </td>
                 <td>
                   <form action="/admin/approve/<%=leave[i]._id%>?_method=PUT" method="POST">
-                    <input type="submit" value="APPROVE">
+                    <button type="submit" class="btn btn-danger">APPROVE</button>
                   </form>
                 </td>
                 <td>
                     <form action="/admin/reject/<%=leave[i]._id%>?_method=PUT" method="POST">
-                      <input type="submit" value="REJECT">
+                      <button type="submit" class="btn btn-danger">REJECT</button>
                     </form>
                 </td>
             </tr>        
