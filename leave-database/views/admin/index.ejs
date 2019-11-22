@@ -32,9 +32,9 @@
                             <%if (String(employees[i]._id) == String(leaveTaken[k]._id.employeeId)) {%>
                               <%leaveCounter += 1;%>
                               <%console.log(employees[i].firstName)%>
+                              <%}%>
+                              <%}%>
                               <%console.log(leaveCounter)%>
-                            <%}%>
-                          <%}%>
                           <%if (leaveCounter === 0) {%>
                             <td>0</td>
                             <td>0</td>
