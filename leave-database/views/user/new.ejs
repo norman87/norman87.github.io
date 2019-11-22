@@ -39,7 +39,47 @@
         </span>
       </div>
     </nav>
-    <form action="/user/<%=employee._id%>" method="POST">
+    <form action="/user/<%=employee._id%>" id="newLeaveForm" method="POST">
+      <div class="form-group">
+        <label for="startDate">Start Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="startDate"
+          placeholder="Start Date"
+          name="startDate"
+        />
+        <label for="startDate">End Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="endDate"
+          placeholder="End Date"
+          name="endDate"
+        />
+        <label for="numberOfDays">Number of Days</label>
+        <input
+          type="number"
+          class="form-control"
+          id="numberOfDays"
+          placeholder="Number of Days"
+          name="numberOfDays"
+        />
+        <label for="reason">Reason</label>
+        <input
+          type="text"
+          class="form-control"
+          id="reason"
+          placeholder="Reason"
+          name="reason"
+        />
+        <input type="hidden" name="approvalStatus" value="Pending Approval" />
+        <input type="hidden" name="employeeId" value="<%=employee._id%>" />
+      </div>
+      <button type="submit" class="btn btn-danger">Submit</button>
+    </form>
+
+    <!-- <form action="/user/<%=employee._id%>" method="POST">
       Start Date:
       <input type="date" name="startDate" /><br />
       End Date:
@@ -50,6 +90,6 @@
       <a href="/user/<%=employee._id%>">Return to User Dashboard</a><br />
       <input type="hidden" name="approvalStatus" value="Pending Approval" />
       <input type="submit" value="Apply for leave" />
-    </form>
+    </form> -->
   </body>
 </html>
