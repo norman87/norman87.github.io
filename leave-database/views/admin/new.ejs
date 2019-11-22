@@ -5,8 +5,133 @@
   </head>
   <body>
     <h1>Add New Employee</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">Main Dashboard</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/admin/new"
+              >Add New Employee<span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+        <span class="navbar-text">
+          <form action="/sessions?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-light">LOGOUT</button>
+          </form>
+        </span>
+      </div>
+    </nav>
 
-    <form action="/admin" method="POST">
+    <form action="/admin" method="POST" id="newEmployeeForm">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          placeholder="First Name"
+          name="firstName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          placeholder="Last Name"
+          name="lastName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="dateEmployed">Date of Employment</label>
+        <input
+          type="date"
+          class="form-control"
+          id="dateEmployed"
+          placeholder="Date of Employment"
+          name="dateEmployed"
+        />
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of Birth</label>
+        <input
+          type="date"
+          class="form-control"
+          id="dateOfBirth"
+          placeholder="Date of Birth"
+          name="dateOfBirth"
+        />
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input
+          type="text"
+          class="form-control"
+          id="gender"
+          placeholder="Gender"
+          name="gender"
+        />
+      </div>
+      <div class="form-group">
+        <label for="nationality">Nationality</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nationality"
+          placeholder="Nationality"
+          name="nationality"
+        />
+      </div>
+      <div class="form-group">
+        <label for="leaveBalance">Leave Balance</label>
+        <input
+          type="text"
+          class="form-control"
+          id="leaveBalance"
+          placeholder="Leave Balance"
+          name="leaveBalance"
+        />
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          placeholder="Username"
+          name="username"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Password"
+          name="password"
+        />
+      </div>
+      <input type="hidden" name="isAdmin" value="false" />
+      <button type="submit" class="btn btn-danger">Add New Employee</button>
+    </form>
+
+    <!-- <form action="/admin" method="POST">
       First Name: <input type="text" name="firstName" /><br />
       Last Name: <input type="text" name="lastName" /><br />
       Date of Employment: <input type="date" name="dateEmployed" /><br />
@@ -17,11 +142,9 @@
       Username: <input type="text" name="username" /><br />
       Password: <input type="text" name="password" /><br />
       <!-- isActive: <input type="boolean" name="isActive" /><br />
-      isAdmin: <input type="boolean" name="isAdmin" /><br /> -->
-      <input type="hidden" name="isAdmin" value="false" />
+        isAdmin: <input type="boolean" name="isAdmin" /><br /> -->
+    <!-- <input type="hidden" name="isAdmin" value="false" />
       <input type="submit" value="Add New Employee" />
-    </form>
-
-    <a href="/admin">Return to Admin Dashboard</a>
+    </form> -->
   </body>
 </html>
